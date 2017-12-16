@@ -1,0 +1,34 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: aws-chef-automate
+  region: us-east-1
+  availability_zone: b
+#  subnet_id: subnet-3f22bd15
+  instance_type: m1.small
+  image_id: ami-4009963a
+#  security_group_ids: ["sg-48984132"]
+  retryable_tries: 120
+  tags:
+    Name: "guardian-iis-server"
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+
+transport:
+  ssh_key: ~/.ssh/aws-chef-automate.pem
+
+platforms:
+  - name: windows-2012r2
+
+suites:
+  - name: default
+    run_list:
+      - recipe[my_iis::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:

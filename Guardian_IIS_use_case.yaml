@@ -1,0 +1,50 @@
+##################################################
+Windows/IIS App
+##################################################
+
+Install .net 4.6.2
+Enable iis_features:
+    - 'IIS-WebServerRole'
+    - 'IIS-WebServer'
+    - 'IIS-CommonHttpFeatures'
+    - 'IIS-Security'
+    - 'IIS-RequestFiltering'
+    - 'IIS-StaticContent'
+    - 'IIS-DefaultDocument'
+    - 'IIS-DirectoryBrowsing'
+    - 'IIS-HttpErrors'
+    - 'IIS-HttpRedirect'
+    - 'IIS-WebDAV'
+    - 'IIS-ApplicationDevelopment'
+    - 'IIS-WebSockets'
+    - 'IIS-ApplicationInit'
+    - 'IIS-ISAPIExtensions'
+    - 'IIS-ISAPIFilter'
+    - 'IIS-ASP'
+    - 'IIS-CGI'
+    - 'IIS-ServerSideIncludes'
+    - 'IIS-HealthAndDiagnostics'
+    - 'IIS-HttpLogging'
+    - 'IIS-LoggingLibraries'
+    - 'IIS-RequestMonitor'
+    - 'IIS-HttpTracing'
+    - 'IIS-CustomLogging'
+    - 'IIS-ODBCLogging'
+    - 'IIS-CertProvider'
+    - 'IIS-BasicAuthentication'
+    - 'IIS-WindowsAuthentication'
+    - 'IIS-DigestAuthentication'
+    - 'IIS-ClientCertificateMappingAuthentication'
+    - 'IIS-IISCertificateMappingAuthentication'
+Create folder d:\candidateportal\wwwroot\candidateportal
+Create app pool called candidateportal
+Should use .net 4.0 and integrated mode
+Delete default website
+Create website called candidateportal
+Set http binding to port 80
+Set file root to d:\candidateportal\wwwroot
+Set log_directory: 'D:\candidateportal_Logs'
+Set advanced_logging: true
+Create a virtual application under the candidateportal website called candidateportal     
+Should point to d:\candidateportal\wwwroot\candidateportal
+Should use the candidateportal app pool
