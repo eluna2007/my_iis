@@ -5,7 +5,7 @@ driver:
   region: us-east-1
   availability_zone: b
 #  subnet_id: subnet-3f22bd15
-  instance_type: m1.small
+  instance_type: t2.medium
   image_id: ami-4009963a
 #  security_group_ids: ["sg-48984132"]
   retryable_tries: 120
